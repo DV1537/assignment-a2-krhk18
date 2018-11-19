@@ -11,7 +11,7 @@ class Line : public Shape
         {
             return type;
         }
-        virtual double area()
+        virtual double area(Coordinate *pCoord, int n)
         {
             return 2;
         }

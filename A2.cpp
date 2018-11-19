@@ -55,27 +55,24 @@ int main(int argc, const char * argv[])
         } */
         if(count == 1)
         {
-            Point *shapePtr = new Point;    //Create point object
-            std::cout << shapePtr->getType() << std::endl;
-            std::cout << "The area is: " << shapePtr->area() << std::endl;
+            shapePtr = new Point;    //Create point object
         }
         else if(count == 2)
         {
-            Line *shapePtr = new Line;       //Create line object
-            std::cout << shapePtr->getType() << std::endl;              //???Måste jag göra detta för alla!
-            std::cout << "The area is: " << shapePtr->area() << std::endl;    //???Försökte göra på slutet, men gått ur scope då.
+            shapePtr = new Line;       //Create line object
         }
         else if(count == 3)
         {
-            Triangle *shapePtr = new Triangle;   //Create triangle object   //???Om punkter på rad???
-            std::cout << shapePtr->getType() << std::endl;
-            std::cout << "The area is: " << shapePtr->area() << std::endl;
+            shapePtr = new Triangle;   //Create triangle object   //???Om punkter på rad??
         }
         else if(count >= 4)
         {
-            Polygon *shapePtr = new Polygon;    //Create polygon object
-            std::cout << shapePtr->getType() << std::endl;
-            std::cout << "The area is: " << shapePtr->area() << std::endl;
+            shapePtr = new Polygon;    //Create polygon object
+        }
+
+        std::cout << shapePtr->getType() << std::endl;
+        {
+            std::cout << "The area is: " << shapePtr->area(coordinatePtr, count) << std::endl;
         }
     }
     
