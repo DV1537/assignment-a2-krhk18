@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "Coordinate.h"
+#include "Position.h"
 #include "Shape.h"
 #include "Point.h"
 #include "Line.h"
@@ -10,7 +10,7 @@
 int main(int argc, const char * argv[])
 {
     int size = 1;
-    Coordinate *coordinatePtr = new Coordinate[size];
+    Position *PositionPtr = new Position[size];
     Shape *shapePtr = nullptr;
     int count = 0;
     std::ifstream inputFile;
@@ -24,22 +24,22 @@ int main(int argc, const char * argv[])
     {
         do
         {
-            inputFile >> coordinatePtr[count].xCoord;
-            inputFile >> coordinatePtr[count].yCoord;
+            inputFile >> PositionPtr[count].xCoord;
+            inputFile >> PositionPtr[count].yCoord;
             count++;
 
             if(count >= size)                       //If full: expand
             {
                 size += 1;                          //increase size
-                Coordinate *tempPtr = new Coordinate[size];      //Create new (bigger)
+                Position *tempPtr = new Position[size];      //Create new (bigger)
                                 
                 for(int i = 0; i < size - 1; i++)      //move
                 {
-                    tempPtr[i] = coordinatePtr[i];
+                    tempPtr[i] = PositionPtr[i];
                 }
 
-                delete []coordinatePtr;                //delete old content
-                coordinatePtr = tempPtr;               //make pointer point to new array
+                delete []PositionPtr;                //delete old content
+                PositionPtr = tempPtr;               //make pointer point to new array
                 tempPtr = nullptr;                  //make xTempPtr point to null
             }
             
@@ -63,19 +63,17 @@ int main(int argc, const char * argv[])
         }
         else if(count == 3)
         {
-            shapePtr = new Triangle;   //Create triangle object   //???Om punkter på rad??
+            shapePtr = new Triangle(PositionPtr);   //Create triangle object   //???Om punkter på rad??
         }
         else if(count >= 4)
         {
             shapePtr = new Polygon;    //Create polygon object
         }
 
-        std::cout << shapePtr->getType() << std::endl;
-        {
-            std::cout << "The area is: " << shapePtr->area(coordinatePtr, count) << std::endl;
-        }
+        std::cout << "Shape: " << shapePtr->getType() << std::endl;
+        std::cout << "Area: " << shapePtr->area() << std::endl;
     }
     
     for(int i = 0; i < count; i++)
-            std::cout << "X: " << coordinatePtr[i].xCoord << ", Y: " << coordinatePtr[i].yCoord << std::endl;
+            std::cout << "X: " << PositionPtr[i].xCoord << ", Y: " << PositionPtr[i].yCoord << std::endl;
 }

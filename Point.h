@@ -10,7 +10,7 @@ class Point : public Shape
         {
             return "Point";
         }
-        virtual double area(Coordinate *pCoord, int n)
+        virtual double area()
         {
             return -1;
         }
