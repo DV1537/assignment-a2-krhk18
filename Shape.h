@@ -28,7 +28,6 @@ class Shape
         virtual double area()           //returns area of the object, or -1 if the shape is concave, intersecting, or does not have an area
         {
             double area = 100;
-            //double area = abs(1/2 * sum(X(i)*Y(i+1)-X(i)*Y(i-1)))
             return area;
         }
 

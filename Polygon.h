@@ -10,6 +10,19 @@ class Polygon : public Shape
         {
             return "Triangle";
         }
+
+        virtual double area()
+        {
+            double area = 0.0; 
+            int j = 3 - 1; 
+            for (int i = 0; i < 3; i++) 
+            { 
+                area += (pos[j].xCoord + pos[i].xCoord) * (pos[j].yCoord - pos[i].yCoord); 
+                j = i;
+            } 
+            area = abs(area / 2.0);
+            return area;
+        }
 };
 
 #endif
