@@ -22,6 +22,12 @@ class Line : public Shape
             return type;
         }
 
+        virtual double area()           
+        {
+            double area = -1;
+            return area;
+        }
+
         virtual double circumreference()       //returns circumreference of the object
         {
             double circumference = 0.0;
@@ -30,12 +36,6 @@ class Line : public Shape
                 circumference += sqrt(pow((pos[i].xCoord - pos[i + 1].xCoord), 2) + pow((pos[i].yCoord - pos[i + 1].yCoord), 2));
             }
             return circumference;
-        }
-
-        virtual double area()           
-        {
-            double area = -1;
-            return area;
         }
 };
 

@@ -6,7 +6,6 @@ class Triangle : public Shape
 {
     private:
     public:
- 
         Triangle(Position *pPos, int numPositions)
         {
             nrOfPositions = numPositions;
