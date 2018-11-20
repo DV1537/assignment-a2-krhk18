@@ -33,7 +33,7 @@ class Shape
             return area;
         }
 
-        double circumreference()       //returns circumreference of the object
+        virtual double circumreference()       //returns circumreference of the object
         {
             double circumference = 0.0;
             int j = nrOfPositions - 1;
@@ -48,6 +48,8 @@ class Shape
         Position position()                   //returns center coordinates of the object
         {
             Position midPosition;
+            midPosition.xCoord = 0.0;
+            midPosition.yCoord = 0.0;
             for(int i = 0; i < nrOfPositions ; i++)
             {
                 midPosition.xCoord += pos[i].xCoord;
