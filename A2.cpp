@@ -55,11 +55,11 @@ int main(int argc, const char * argv[])
         } */
         if(count == 1)
         {
-            shapePtr = new Point;    //Create point object
+            shapePtr = new Point(PositionPtr, count);    //Create point object
         }
         else if(count == 2)
         {
-            shapePtr = new Line;       //Create line object
+            shapePtr = new Line(PositionPtr, count);       //Create line object
         }
         else if(count == 3)
         {
