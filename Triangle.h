@@ -5,7 +5,6 @@
 class Triangle : public Shape
 {
     private:
-        Position pos[3];
     public:
  
         Triangle(Position *pPos)

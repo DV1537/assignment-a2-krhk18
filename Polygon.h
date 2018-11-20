@@ -8,7 +8,7 @@ class Polygon : public Shape
     public:
         virtual std::string getType() const
         {
-            return "Triangle";
+            return "Polygon";
         }
 
         virtual double area()
