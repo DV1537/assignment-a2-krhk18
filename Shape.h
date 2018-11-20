@@ -33,7 +33,17 @@ class Shape
             return area;
         }
 
-        double circumreference();       //returns circumreference of the object
+        double circumreference()       //returns circumreference of the object
+        {
+            double circumference = 0.0;
+            int j = nrOfPositions - 1;
+            for(int i = 0; i < nrOfPositions; i++)
+            {
+                circumference += sqrt(pos[i].xCoord * pos[i].xCoord + pos[j].yCoord * pos[j].yCoord);
+                j = i;
+            }
+            return circumference;
+        }
 
         Position position()                   //returns center coordinates of the object
         {
