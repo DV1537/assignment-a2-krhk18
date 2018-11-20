@@ -31,10 +31,12 @@ class Line : public Shape
             }
             return circumference;
         }
-/*         virtual double area()
+
+        virtual double area()           
         {
-            return 2;
-        } */
+            double area = -1;
+            return area;
+        }
 };
 
 #endif

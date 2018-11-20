@@ -14,15 +14,23 @@ class Point : public Shape
                 pos[i] = pPos[i];
             }
         }
-        
+
         virtual std::string getType() const
         {
             return "Point";
         }
-/*         virtual double area()
+        
+        virtual double area()           
         {
-            return -1;
-        } */
+            double area = -1;
+            return area;
+        }
+
+        virtual double circumreference()       //returns circumreference of the object
+        {
+            double circumference = -1;
+            return circumference;
+        }
 };
 
 #endif

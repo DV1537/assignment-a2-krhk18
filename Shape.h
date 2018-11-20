@@ -27,9 +27,16 @@ class Shape
     public:
         virtual std::string getType() const = 0;     //returns a string denoting type of a shape (point, line, polygon ..)
 
-        virtual double area()           //returns area of the object, or -1 if the shape is concave, intersecting, or does not have an area
+        virtual double area()                       //returns area of the object, or -1 if the shape is concave, intersecting, or does not have an area
         {
-            double area = -1;
+            double area = 0.0; 
+            int j = nrOfPositions - 1; 
+            for (int i = 0; i < nrOfPositions; i++)
+            { 
+                area += (pos[j].xCoord + pos[i].xCoord) * (pos[j].yCoord - pos[i].yCoord); 
+                j = i;
+            } 
+            area = abs(area / 2.0);
             return area;
         }
 

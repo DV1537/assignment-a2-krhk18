@@ -19,19 +19,6 @@ class Polygon : public Shape
         {
             return "Polygon";
         }
-
-        virtual double area()
-        {
-            double area = 0.0; 
-            int j = nrOfPositions - 1; 
-            for (int i = 0; i < nrOfPositions; i++) 
-            { 
-                area += (pos[j].xCoord + pos[i].xCoord) * (pos[j].yCoord - pos[i].yCoord); 
-                j = i;
-            } 
-            area = abs(area / 2.0);
-            return area;
-        }
 };
 
 #endif
