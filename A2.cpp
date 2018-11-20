@@ -77,5 +77,17 @@ int main(int argc, const char * argv[])
     }
     
     for(int i = 0; i < count; i++)
+    {
             std::cout << "X: " << PositionPtr[i].xCoord << ", Y: " << PositionPtr[i].yCoord << std::endl;
+    }
+    
+
+    //Test how signbit works - remove when done
+    bool isNegative = std::signbit(-1);
+    if(isNegative)
+    {
+        std::cout << "Negative" << std::endl;
+    }
+    else
+        std::cout << "Positive" << std::endl;
 }

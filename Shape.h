@@ -68,7 +68,10 @@ class Shape
             return midPosition;
         }
 
-        bool isConvex();                //returns true if shape is convex
+        bool isConvex()                //returns true if shape is convex
+        {
+            
+        }
 
         //double distance(Shape s);       //returns distance to the center of another shape
         
