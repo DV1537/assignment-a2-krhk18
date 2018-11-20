@@ -63,11 +63,11 @@ int main(int argc, const char * argv[])
         }
         else if(count == 3)
         {
-            shapePtr = new Triangle(PositionPtr);   //Create triangle object   //???Om punkter på rad??
+            shapePtr = new Triangle(PositionPtr, count);   //Create triangle object   //???Om punkter på rad??
         }
         else if(count >= 4)
         {
-            shapePtr = new Polygon;    //Create polygon object
+            shapePtr = new Polygon(PositionPtr, count);    //Create polygon object
         }
 
         std::cout << "Shape: " << shapePtr->getType() << std::endl;

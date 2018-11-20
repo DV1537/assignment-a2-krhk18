@@ -7,9 +7,10 @@ class Triangle : public Shape
     private:
     public:
  
-        Triangle(Position *pPos)
+        Triangle(Position *pPos, int numPositions)
         {
-            for(int i = 0; i < 3; i++)
+            nrOfPositions = numPositions;
+            for(int i = 0; i < numPositions; i++)
             {
                 pos[i] = pPos[i];
             }
@@ -23,8 +24,8 @@ class Triangle : public Shape
         virtual double area()
         {
             double area = 0.0; 
-            int j = 3 - 1; 
-            for (int i = 0; i < 3; i++) 
+            int j = nrOfPositions - 1; 
+            for (int i = 0; i < nrOfPositions; i++)
             { 
                 area += (pos[j].xCoord + pos[i].xCoord) * (pos[j].yCoord - pos[i].yCoord); 
                 j = i;

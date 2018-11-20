@@ -22,7 +22,8 @@ There should not be a limitation of how many points the program can load. */
 class Shape
 {
     protected:
-        Position pos[3];
+        int nrOfPositions;
+        Position pos[10];
     public:
         virtual std::string getType() const = 0;     //returns a string denoting type of a shape (point, line, polygon ..)
 
