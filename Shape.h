@@ -35,7 +35,24 @@ class Shape
 
         double circumreference();       //returns circumreference of the object
 
-        //?? position();                   //returns center coordinates of the object
+        Position position()                   //returns center coordinates of the object
+        {
+            Position midPosition;
+            double xMid = 0.0;
+            double yMid = 0.0;
+            for(int i = 0; i < nrOfPositions ; i++)
+            {
+                xMid += pos[i].xCoord;
+                yMid += pos[i].yCoord;
+            }
+            yMid /= nrOfPositions;
+            xMid /= nrOfPositions;
+
+            midPosition.xCoord = xMid;
+            midPosition.yCoord = yMid;
+
+            return midPosition;
+        }
 
         bool isConvex();                //returns true if shape is convex
 

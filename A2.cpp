@@ -72,6 +72,7 @@ int main(int argc, const char * argv[])
 
         std::cout << "Shape: " << shapePtr->getType() << std::endl;
         std::cout << "Area: " << shapePtr->area() << std::endl;
+        std::cout << "Midposition, x: " << shapePtr->position().xCoord << " , y: " << shapePtr->position().yCoord << std::endl;
     }
     
     for(int i = 0; i < count; i++)
