@@ -11,10 +11,10 @@ class Line : public Shape
         {
             return type;
         }
-        virtual double area()
+/*         virtual double area()
         {
             return 2;
-        }
+        } */
 };
 
 #endif

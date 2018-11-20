@@ -29,7 +29,7 @@ class Shape
 
         virtual double area()           //returns area of the object, or -1 if the shape is concave, intersecting, or does not have an area
         {
-            double area = 100;
+            double area = -1;
             return area;
         }
 

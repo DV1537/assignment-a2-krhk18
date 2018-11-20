@@ -10,10 +10,10 @@ class Point : public Shape
         {
             return "Point";
         }
-        virtual double area()
+/*         virtual double area()
         {
             return -1;
-        }
+        } */
 };
 
 #endif
