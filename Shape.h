@@ -39,7 +39,7 @@ class Shape
             int j = nrOfPositions - 1;
             for(int i = 0; i < nrOfPositions; i++)
             {
-                circumference += sqrt(pos[i].xCoord * pos[i].xCoord + pos[j].yCoord * pos[j].yCoord);
+                circumference += sqrt(pow((pos[i].xCoord - pos[j].xCoord), 2) + pow((pos[i].yCoord - pos[j].yCoord), 2));
                 j = i;
             }
             return circumference;
