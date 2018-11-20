@@ -38,18 +38,13 @@ class Shape
         Position position()                   //returns center coordinates of the object
         {
             Position midPosition;
-            double xMid = 0.0;
-            double yMid = 0.0;
             for(int i = 0; i < nrOfPositions ; i++)
             {
-                xMid += pos[i].xCoord;
-                yMid += pos[i].yCoord;
+                midPosition.xCoord += pos[i].xCoord;
+                midPosition.yCoord += pos[i].yCoord;
             }
-            yMid /= nrOfPositions;
-            xMid /= nrOfPositions;
-
-            midPosition.xCoord = xMid;
-            midPosition.yCoord = yMid;
+            midPosition.xCoord /= nrOfPositions;
+            midPosition.yCoord /= nrOfPositions;
 
             return midPosition;
         }
