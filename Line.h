@@ -11,10 +11,10 @@ class Line : public Shape
         Line(Position *pPos, int numPositions)
         {
             nrOfPositions = numPositions;
-            pos = new Position[numPositions];
+            posPtr = new Position[numPositions];
             for(int i = 0; i < numPositions; i++)
             {
-                pos[i] = pPos[i];
+                posPtr[i] = pPos[i];
             }
         }
 
@@ -34,7 +34,7 @@ class Line : public Shape
             double circumference = 0.0;
             for(int i = 0; i < nrOfPositions - 1; i++)
             {
-                circumference += sqrt(pow((pos[i].xCoord - pos[i + 1].xCoord), 2) + pow((pos[i].yCoord - pos[i + 1].yCoord), 2));
+                circumference += sqrt(pow((posPtr[i].xCoord - posPtr[i + 1].xCoord), 2) + pow((posPtr[i].yCoord - posPtr[i + 1].yCoord), 2));
             }
             return circumference;
         }

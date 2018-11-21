@@ -9,10 +9,10 @@ class Point : public Shape
         Point(Position *pPos, int numPositions)
         {
             nrOfPositions = numPositions;
-            pos = new Position[numPositions];
+            posPtr = new Position[numPositions];
             for(int i = 0; i < numPositions; i++)
             {
-                pos[i] = pPos[i];
+                posPtr[i] = pPos[i];
             }
         }
 

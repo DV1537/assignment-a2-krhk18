@@ -23,7 +23,7 @@ class Shape
 {
     protected:
         int nrOfPositions;
-        Position *pos;
+        Position *posPtr;
     public:
         virtual std::string getType() const = 0;     //returns a string denoting type of a shape (point, line, polygon ..)
 
@@ -33,7 +33,7 @@ class Shape
             int j = nrOfPositions - 1; 
             for (int i = 0; i < nrOfPositions; i++)
             { 
-                area += (pos[j].xCoord + pos[i].xCoord) * (pos[j].yCoord - pos[i].yCoord); 
+                area += (posPtr[j].xCoord + posPtr[i].xCoord) * (posPtr[j].yCoord - posPtr[i].yCoord); 
                 j = i;
             } 
             area = abs(area / 2.0);
@@ -46,7 +46,7 @@ class Shape
             int j = nrOfPositions - 1;
             for(int i = 0; i < nrOfPositions; i++)
             {
-                circumference += sqrt(pow((pos[i].xCoord - pos[j].xCoord), 2) + pow((pos[i].yCoord - pos[j].yCoord), 2));
+                circumference += sqrt(pow((posPtr[i].xCoord - posPtr[j].xCoord), 2) + pow((posPtr[i].yCoord - posPtr[j].yCoord), 2));
                 j = i;
             }
             return circumference;
@@ -59,8 +59,8 @@ class Shape
             midPosition.yCoord = 0.0;
             for(int i = 0; i < nrOfPositions ; i++)
             {
-                midPosition.xCoord += pos[i].xCoord;
-                midPosition.yCoord += pos[i].yCoord;
+                midPosition.xCoord += posPtr[i].xCoord;
+                midPosition.yCoord += posPtr[i].yCoord;
             }
             midPosition.xCoord /= nrOfPositions;
             midPosition.yCoord /= nrOfPositions;
