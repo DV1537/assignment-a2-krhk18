@@ -1,11 +1,11 @@
 #include <iostream>
 #include <fstream>
-#include "Position.h"
-#include "Shape.h"
-#include "Point.h"
-#include "Line.h"
-#include "Triangle.h"
-#include "Polygon.h"
+#include "Position.cpp"
+#include "Shape.cpp"
+#include "Point.cpp"
+#include "Line.cpp"
+#include "Triangle.cpp"
+#include "Polygon.cpp"
 
 int main(int argc, const char * argv[])
 {
@@ -101,3 +101,5 @@ int main(int argc, const char * argv[])
     else
         std::cout << "Positive" << std::endl;
 }
+
+//Remember delete positionPtr!!!

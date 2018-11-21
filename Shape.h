@@ -24,7 +24,10 @@ class Shape
     protected:
         int nrOfPositions;
         Position *posPtr;
+        //std::string type;
     public:
+        //Shape();
+        //virtual ~Shape();
         virtual std::string getType() const = 0;     //returns a string denoting type of a shape (point, line, polygon ..)
 
         virtual double area()                       //returns area of the object, or -1 if the shape is concave, intersecting, or does not have an area
@@ -96,11 +99,13 @@ class Shape
                     }
                 }
             }
-
             return isConvex;
         }
 
-        //double distance(Shape s);       //returns distance to the center of another shape
+/*         double distance(Shape s);       //returns distance to the center of another shape
+        {
+            
+        } */
         
 };
 

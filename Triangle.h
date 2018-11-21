@@ -15,7 +15,8 @@ class Triangle : public Shape
                 posPtr[i] = pPos[i];
             }
         }
-        virtual std::string getType() const
+        //~Triangle();
+        std::string getType() const override
         {
             return "Triangle";
         }

@@ -29,15 +29,15 @@ class Line : public Shape
             return area;
         }
 
-        virtual double circumreference()       //returns circumreference of the object
-        {
+        double circumreference();       //returns circumreference of the object
+/*         {
             double circumference = 0.0;
             for(int i = 0; i < nrOfPositions - 1; i++)
             {
                 circumference += sqrt(pow((posPtr[i].xCoord - posPtr[i + 1].xCoord), 2) + pow((posPtr[i].yCoord - posPtr[i + 1].yCoord), 2));
             }
             return circumference;
-        }
+        } */
 };
 
 #endif
