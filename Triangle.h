@@ -15,7 +15,6 @@ class Triangle : public Shape
                 posPtr[i] = pPos[i];
             }
         }
- 
         virtual std::string getType() const
         {
             return "Triangle";

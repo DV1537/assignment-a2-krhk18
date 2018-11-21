@@ -75,22 +75,22 @@ class Shape
 
             for(int i = 0; i < nrOfPositions; i++)
             {
-                double dx1 = posPtr[(i + 1) % nrOfPositions].xCoord - posPtr[i].xCoord;            
-                double dy1 = posPtr[(i + 1) % nrOfPositions].yCoord - posPtr[i].yCoord;           
-                double dx2 = posPtr[(i + 2) % nrOfPositions].xCoord - posPtr[(i + 1) % nrOfPositions].xCoord;           
-                double dy2 = posPtr[(i + 2) % nrOfPositions].yCoord - posPtr[(i + 1) % nrOfPositions].yCoord;
-                double crossProduct = (dx1 * dy2) - (dy1 * dx2);
+                double v1x = posPtr[i].xCoord - posPtr[(i + 1) % nrOfPositions].xCoord;
+                double v1y = posPtr[i].yCoord - posPtr[(i + 1) % nrOfPositions].yCoord;
+                double v2x = posPtr[(i + 2) % nrOfPositions].xCoord - posPtr[(i + 1) % nrOfPositions].xCoord;
+                double v2y = posPtr[(i + 2) % nrOfPositions].yCoord - posPtr[(i + 1) % nrOfPositions].yCoord;
+                double dotProduct = ((v1x * v2x) + v1y * v2y);
 
                 if(i == 0)
                 {
-                    if(crossProduct > 0)
+                    if(dotProduct > 0)
                     {
                         sign = true;
                     }
                 }
                 else
                 {
-                    if((crossProduct > 0) != sign)
+                    if((dotProduct > 0) != sign)
                     {
                         isConvex = false;
                     }
