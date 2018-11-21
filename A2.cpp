@@ -10,7 +10,7 @@
 int main(int argc, const char * argv[])
 {
     int size = 1;
-    Position *PositionPtr = new Position[size];
+    Position *positionPtr = new Position[size];
     Shape *shapePtr = nullptr;
     int count = 0;
     std::ifstream inputFile;
@@ -24,8 +24,8 @@ int main(int argc, const char * argv[])
     {
         do
         {
-            inputFile >> PositionPtr[count].xCoord;
-            inputFile >> PositionPtr[count].yCoord;
+            inputFile >> positionPtr[count].xCoord;
+            inputFile >> positionPtr[count].yCoord;
             count++;
 
             if(count >= size)                       //If full: expand
@@ -35,11 +35,11 @@ int main(int argc, const char * argv[])
                                 
                 for(int i = 0; i < size - 1; i++)      //move
                 {
-                    tempPtr[i] = PositionPtr[i];
+                    tempPtr[i] = positionPtr[i];
                 }
 
-                delete []PositionPtr;                //delete old content
-                PositionPtr = tempPtr;               //make pointer point to new array
+                delete []positionPtr;                //delete old content
+                positionPtr = tempPtr;               //make pointer point to new array
                 tempPtr = nullptr;                  //make xTempPtr point to null
             }
             
@@ -55,19 +55,19 @@ int main(int argc, const char * argv[])
         } */
         if(count == 1)
         {
-            shapePtr = new Point(PositionPtr, count);    //Create point object
+            shapePtr = new Point(positionPtr, count);    //Create point object
         }
         else if(count == 2)
         {
-            shapePtr = new Line(PositionPtr, count);       //Create line object
+            shapePtr = new Line(positionPtr, count);       //Create line object
         }
         else if(count == 3)
         {
-            shapePtr = new Triangle(PositionPtr, count);   //Create triangle object   //???Om punkter på rad??
+            shapePtr = new Triangle(positionPtr, count);   //Create triangle object   //???Om punkter på rad??
         }
         else if(count >= 4)
         {
-            shapePtr = new Polygon(PositionPtr, count);    //Create polygon object
+            shapePtr = new Polygon(positionPtr, count);    //Create polygon object
         }
 
         std::cout << "Shape: " << shapePtr->getType() << std::endl;
@@ -78,7 +78,7 @@ int main(int argc, const char * argv[])
     
     for(int i = 0; i < count; i++)
     {
-            std::cout << "X: " << PositionPtr[i].xCoord << ", Y: " << PositionPtr[i].yCoord << std::endl;
+            std::cout << "X: " << positionPtr[i].xCoord << ", Y: " << positionPtr[i].yCoord << std::endl;
     }
     
 

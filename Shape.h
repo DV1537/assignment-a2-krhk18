@@ -24,7 +24,6 @@ class Shape
     protected:
         int nrOfPositions;
         Position *pos;
-        //Position pos[10];
     public:
         virtual std::string getType() const = 0;     //returns a string denoting type of a shape (point, line, polygon ..)
 
