@@ -68,10 +68,37 @@ class Shape
             return midPosition;
         }
 
-       /*  bool isConvex()                //returns true if shape is convex
+        bool isConvex()                //returns true if shape is convex
         {
-            
-        } */
+            bool isConvex = true;
+            bool sign = false;
+
+            for(int i = 0; i < nrOfPositions; i++)
+            {
+                double dx1 = posPtr[(i + 1) % nrOfPositions].xCoord - posPtr[i].xCoord;            
+                double dy1 = posPtr[(i + 1) % nrOfPositions].yCoord - posPtr[i].yCoord;           
+                double dx2 = posPtr[(i + 2) % nrOfPositions].xCoord - posPtr[(i + 1) % nrOfPositions].xCoord;           
+                double dy2 = posPtr[(i + 2) % nrOfPositions].yCoord - posPtr[(i + 1) % nrOfPositions].yCoord;
+                double crossProduct = (dx1 * dy2) - (dy1 * dx2);
+
+                if(i == 0)
+                {
+                    if(crossProduct > 0)
+                    {
+                        sign = true;
+                    }
+                }
+                else
+                {
+                    if((crossProduct > 0) != sign)
+                    {
+                        isConvex = false;
+                    }
+                }
+            }
+
+            return isConvex;
+        }
 
         //double distance(Shape s);       //returns distance to the center of another shape
         

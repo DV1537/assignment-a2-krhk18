@@ -74,6 +74,16 @@ int main(int argc, const char * argv[])
         std::cout << "Area: " << shapePtr->area() << std::endl;
         std::cout << "Midposition, x: " << shapePtr->position().xCoord << " , y: " << shapePtr->position().yCoord << std::endl;
         std::cout << "Circumference: " << shapePtr->circumreference() << std::endl;
+        std::string convex = "";
+        if(shapePtr->isConvex())
+        {
+            convex = "Yes";
+        }
+        else
+        {
+            convex = "No";
+        }
+        std::cout << "Is convex: " << convex << std::endl;
     }
     
     for(int i = 0; i < count; i++)
