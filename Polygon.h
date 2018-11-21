@@ -9,6 +9,7 @@ class Polygon : public Shape
         Polygon(Position *pPos, int numPositions)
         {
             nrOfPositions = numPositions;
+            pos = new Position[numPositions];
             for(int i = 0; i < numPositions; i++)
             {
                 pos[i] = pPos[i];

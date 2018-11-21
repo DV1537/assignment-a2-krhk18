@@ -23,7 +23,8 @@ class Shape
 {
     protected:
         int nrOfPositions;
-        Position pos[10];
+        Position *pos;
+        //Position pos[10];
     public:
         virtual std::string getType() const = 0;     //returns a string denoting type of a shape (point, line, polygon ..)
 
@@ -68,10 +69,10 @@ class Shape
             return midPosition;
         }
 
-        bool isConvex()                //returns true if shape is convex
+       /*  bool isConvex()                //returns true if shape is convex
         {
             
-        }
+        } */
 
         //double distance(Shape s);       //returns distance to the center of another shape
         
