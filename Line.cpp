@@ -1,7 +1,8 @@
 #include "Line.h"
 
-Line::Line(Position *pPos, int numPositions)      //Line constructor
+Line::Line(Position *pPos, int numPositions, std::string type)      //Line constructor
 {
+    this->type = type;
     nrOfPositions = numPositions;
     posPtr = new Position[numPositions];
     for(int i = 0; i < numPositions; i++)

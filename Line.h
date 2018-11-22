@@ -5,16 +5,10 @@
 class Line : public Shape
 {
     private:
-        std::string type = "line";
     public:
-        Line(Position *pPos, int numPositions);      //Line constructor
+        Line(Position *pPos, int numPositions, std::string type);      //Line constructor
 
         ~Line();        //Line destructor
-
-        std::string getType() const     //Returns type
-        {
-            return type;
-        }
 
         double area()      //returns area of the object     
         {

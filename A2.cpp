@@ -19,6 +19,7 @@ int main(int argc, const char * argv[])
     Position *positionPtr = new Position[size];
     Shape *shapePtr = nullptr;
     int count = 0;
+    std::string type = "";
     std::ifstream inputFile;
     inputFile.open("input.in");
 
@@ -61,19 +62,23 @@ int main(int argc, const char * argv[])
         } */
         if(count == 1)
         {
-            shapePtr = new Point(positionPtr, count);    //Create point object
+            type = "Point";
+            shapePtr = new Point(positionPtr, count, type);    //Create point object
         }
         else if(count == 2)
         {
-            shapePtr = new Line(positionPtr, count);       //Create line object
+            type = "Line";
+            shapePtr = new Line(positionPtr, count, type);       //Create line object
         }
         else if(count == 3)
         {
-            shapePtr = new Triangle(positionPtr, count);   //Create triangle object   //???Om punkter på rad??
+            type = "Triangle";
+            shapePtr = new Triangle(positionPtr, count, type);   //Create triangle object   //???Om punkter på rad??
         }
         else if(count >= 4)
         {
-            shapePtr = new Polygon(positionPtr, count);    //Create polygon object
+            type = "Polygon";
+            shapePtr = new Polygon(positionPtr, count, type);    //Create polygon object
         }
 
         std::cout << "Shape: " << shapePtr->getType() << std::endl;

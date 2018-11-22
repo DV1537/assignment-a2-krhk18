@@ -6,15 +6,9 @@ class Polygon : public Shape
 {
     private:
     public:
-        Polygon(Position *pPos, int numPositions);      //Polygon constructor
+        Polygon(Position *pPos, int numPositions, std::string type);      //Polygon constructor
 
         ~Polygon();
-  
-
-        virtual std::string getType() const
-        {
-            return "Polygon";
-        }
 };
 
 #endif

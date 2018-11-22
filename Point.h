@@ -6,15 +6,10 @@ class Point : public Shape
 {
     private:
     public:
-        Point(Position *pPos, int numPositions);     //Point constructor
+        Point(Position *pPos, int numPositions, std::string type);     //Point constructor
 
         ~Point();                                  //Point destructor
 
-        virtual std::string getType() const
-        {
-            return "Point";
-        }
-        
         virtual double area()           
         {
             return -1;
