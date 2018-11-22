@@ -101,7 +101,29 @@ int main(int argc, const char * argv[])
     {
             std::cout << "X: " << positionPtr[i].xCoord << ", Y: " << positionPtr[i].yCoord << std::endl;
     }
+
+    Shape *anotherShapePtr = nullptr;
+    Position posOne;
+    posOne.xCoord = 5;
+    posOne.yCoord = 5;
+    Position posTwo;
+    posTwo.xCoord = 7;
+    posTwo.yCoord = 5;
+    Position posThree;
+    posThree.xCoord = 7;
+    posThree.yCoord = 9;
+    Position posFour;
+    posFour.xCoord = 5;
+    posFour.yCoord = 9;
+    Position *anotherPositionPointer = new Position[4];
+    anotherPositionPointer[0] = posOne;
+    anotherPositionPointer[1] = posTwo;
+    anotherPositionPointer[2] = posThree;
+    anotherPositionPointer[3] = posFour;
+    anotherShapePtr = new Polygon(anotherPositionPointer, 4, "Polygon");
+    shapePtr = new Triangle(positionPtr, 3, "Triangle");
     
+    std::cout << "Distance: " << shapePtr->distance(anotherShapePtr) << std::endl;
 
     //Test how signbit works - remove when done
 /*     bool isNegative = std::signbit(-1);

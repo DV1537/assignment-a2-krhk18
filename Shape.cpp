@@ -63,3 +63,20 @@ bool Shape::isConvex()          //returns true if shape is convex
     }
     return isConvex;
 }
+
+double Shape::distance(Shape *sPtr)
+{
+    std::cout << sPtr->position().xCoord <<  std::endl;
+    std::cout << sPtr->position().yCoord << std::endl;
+    std::cout << this->position().xCoord << std::endl;
+    std::cout << this->position().yCoord << std::endl;
+
+    double x1Mid = this->position().xCoord;
+    double y1Mid = this->position().yCoord;
+    double x2Mid = sPtr->position().xCoord;
+    double y2Mid = sPtr->position().yCoord;
+
+    double distance = sqrt(pow((x1Mid - x2Mid), 2) + pow((y1Mid - y2Mid), 2));
+
+    return distance;
+}
