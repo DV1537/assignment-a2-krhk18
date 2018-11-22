@@ -17,16 +17,29 @@ Triangle::~Triangle()
     posPtr = nullptr;
 }
 
-double Triangle::area()
+double Triangle::area()     
 {
-    double area = 0.0; 
-    int j = nrOfPositions - 1; 
-    for (int i = 0; i < nrOfPositions; i++)
-    { 
-        area += (posPtr[j].xCoord + posPtr[i].xCoord) * (posPtr[j].yCoord - posPtr[i].yCoord); 
-        j = i;
-    } 
-    area = abs(area / 2.0);
+    double area = 0.0;
+
+    if(this->isConvex())    //-1 if the shape is concave
+    {
+        int j = nrOfPositions - 1; 
+        for (int i = 0; i < nrOfPositions; i++)
+        { 
+            area += (posPtr[j].xCoord + posPtr[i].xCoord) * (posPtr[j].yCoord - posPtr[i].yCoord); 
+            j = i;
+        } 
+        area = abs(area / 2.0);
+    }
+    else
+    {
+        area = -1;
+    }
+    
+    if(area == 0)       // -1 if doesn't have an area
+    {
+        area = -1;
+    }
     return area;
 }
 

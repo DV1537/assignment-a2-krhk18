@@ -23,7 +23,7 @@ int main(int argc, const char * argv[])
     int count = 0;
     std::string type = "";
     std::ifstream inputFile;
-    inputFile.open("input.in");
+    inputFile.open(argv[1]);
 
     if(!inputFile)      //Checks if read in successfully
     {
@@ -81,7 +81,7 @@ int main(int argc, const char * argv[])
             else if(count == 3)
             {
                 type = "Triangle";
-                shapePtr = new Triangle(positionPtr, count, type);   //Create triangle object   //???Om punkter på rad??
+                shapePtr = new Triangle(positionPtr, count, type);   //Create triangle object
             }
             else if(count >= 4)
             {
