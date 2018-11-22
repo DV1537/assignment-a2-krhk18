@@ -1,7 +1,11 @@
-/* #include "Polygon.h"
+#include "Polygon.h"
 
-double Polygon::area()
+Polygon::Polygon(Position *pPos, int numPositions)      //Polygon constructor
 {
-    double area = 5;
-    return area;
-} */
+    nrOfPositions = numPositions;
+    posPtr = new Position[numPositions];
+    for(int i = 0; i < numPositions; i++)
+    {
+        posPtr[i] = pPos[i];
+    }
+}

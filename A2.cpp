@@ -1,10 +1,16 @@
 #include <iostream>
 #include <fstream>
+#include "Position.h"
 #include "Position.cpp"
+#include "Shape.h"
 #include "Shape.cpp"
+#include "Point.h"
 #include "Point.cpp"
+#include "Line.h"
 #include "Line.cpp"
+#include "Triangle.h"
 #include "Triangle.cpp"
+#include "Polygon.h"
 #include "Polygon.cpp"
 
 int main(int argc, const char * argv[])

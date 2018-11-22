@@ -6,15 +6,15 @@ class Point : public Shape
 {
     private:
     public:
-        Point(Position *pPos, int numPositions)
-        {
+        Point(Position *pPos, int numPositions);     //Point constructor
+/*         {
             nrOfPositions = numPositions;
             posPtr = new Position[numPositions];
             for(int i = 0; i < numPositions; i++)
             {
                 posPtr[i] = pPos[i];
             }
-        }
+        } */
 
         virtual std::string getType() const
         {
@@ -23,14 +23,12 @@ class Point : public Shape
         
         virtual double area()           
         {
-            double area = -1;
-            return area;
+            return -1;
         }
 
         virtual double circumreference()       //returns circumreference of the object
         {
-            double circumference = -1;
-            return circumference;
+            return -1;
         }
 };
 

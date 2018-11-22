@@ -7,26 +7,24 @@ class Line : public Shape
     private:
         std::string type = "line";
     public:
-
-        Line(Position *pPos, int numPositions)
-        {
+        Line(Position *pPos, int numPositions);      //Line constructor
+ /*        {
             nrOfPositions = numPositions;
             posPtr = new Position[numPositions];
             for(int i = 0; i < numPositions; i++)
             {
                 posPtr[i] = pPos[i];
             }
-        }
+        } */
 
-        virtual std::string getType() const
+        std::string getType() const     //Returns type
         {
             return type;
         }
 
-        virtual double area()           
+        double area()      //returns area of the object     
         {
-            double area = -1;
-            return area;
+            return -1;
         }
 
         double circumreference();       //returns circumreference of the object

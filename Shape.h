@@ -74,7 +74,8 @@ class Shape
         bool isConvex()                //returns true if shape is convex
         {
             bool isConvex = true;
-            bool sign = false;
+            bool sign = true;
+            bool first = true;
 
             for(int i = 0; i < nrOfPositions; i++)
             {
@@ -84,7 +85,25 @@ class Shape
                 double v2y = posPtr[(i + 2) % nrOfPositions].yCoord - posPtr[(i + 1) % nrOfPositions].yCoord;
                 double dotProduct = ((v1x * v2x) + v1y * v2y);
 
-                if(i == 0)
+                if(dotProduct != 0)
+                {
+                    if(first)
+                    {
+                        if(dotProduct > 0)
+                        {
+                            sign = false;
+                            first = false;
+                        }
+                    }
+                    else
+                    {
+                        if(std::signbit(dotProduct) != sign)
+                        {
+                            isConvex = false;
+                        }
+                    }
+                }
+             /*    if(i == 0)
                 {
                     if(dotProduct > 0)
                     {
@@ -93,11 +112,11 @@ class Shape
                 }
                 else
                 {
-                    if((dotProduct > 0) != sign)
+                    if(std::signbit(dotProduct) != sign)
                     {
                         isConvex = false;
                     }
-                }
+                } */
             }
             return isConvex;
         }
