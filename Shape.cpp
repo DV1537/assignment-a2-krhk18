@@ -1,16 +1,5 @@
 #include "Shape.h"
 
-/* Shape::Shape()
-{
-    this->nrOfPositions = 0;
-    this->posPtr = new Position[nrOfPositions];
-}
-
-Shape::~Shape()
-{
-    delete[] posPtr;
-} */
-
 Position Shape::position()                   //returns center coordinates of the object
 {
     Position midPosition;
@@ -66,11 +55,6 @@ bool Shape::isConvex()          //returns true if shape is convex
 
 double Shape::distance(Shape *sPtr)
 {
-    std::cout << sPtr->position().xCoord <<  std::endl;
-    std::cout << sPtr->position().yCoord << std::endl;
-    std::cout << this->position().xCoord << std::endl;
-    std::cout << this->position().yCoord << std::endl;
-
     double x1Mid = this->position().xCoord;
     double y1Mid = this->position().yCoord;
     double x2Mid = sPtr->position().xCoord;

@@ -26,22 +26,20 @@ class Shape
         Position *posPtr;
         std::string type;
     public:
-        //Shape();
-        //virtual ~Shape();
-        std::string getType() const     //returns a string denoting type of a shape (point, line, polygon ..)
+        std::string getType() const                     //returns a string denoting type of a shape (point, line, polygon ..)
         {
             return type;
         }
 
-        virtual double area() = 0;                       //returns area of the object, or -1 if the shape is concave, intersecting, or does not have an area
+        virtual double area() = 0;                      //returns area of the object, or -1 if the shape is concave, intersecting, or does not have an area
 
-        virtual double circumreference() = 0;       //returns circumreference of the object  (returns length of line if line, or -1 if dot)
+        virtual double circumreference() = 0;           //returns circumreference of the object  (returns length of line if line, or -1 if dot)
 
-        Position position();                   //returns center coordinates of the object
+        Position position();                            //returns center coordinates of the object
 
-        bool isConvex();                //returns true if shape is convex
+        bool isConvex();                                //returns true if shape is convex
 
-        double distance(Shape *s);       //returns distance to the center of another shape
+        double distance(Shape *s);                      //returns distance to the center of another shape
 };
 
 #endif
