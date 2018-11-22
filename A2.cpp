@@ -66,6 +66,9 @@ int main(int argc, const char * argv[])
                 positionPtr[i].yCoord = numbersPtr[2 * i + 1];
             }
 
+        delete []numbersPtr;
+        numbersPtr = nullptr;
+
         if(numbers % 2 == 0 && numbers != 0)
         {
             if(count == 1)
@@ -89,51 +92,16 @@ int main(int argc, const char * argv[])
                 shapePtr = new Polygon(positionPtr, count, type);    //Create polygon object
             }
 
-            std::cout << "Shape: " << shapePtr->getType() << std::endl;
-            std::cout << "Area: " << shapePtr->area() << std::endl;
-            std::cout << "Midposition, x: " << shapePtr->position().xCoord << " , y: " << shapePtr->position().yCoord << std::endl;
-            std::cout << "Circumference: " << shapePtr->circumreference() << std::endl;
-            std::string convex = "";
-            if(shapePtr->isConvex())
-            {
-                convex = "Yes";
-            }
-            else
-            {
-                convex = "No";
-            }
-            std::cout << "Is convex: " << convex << std::endl;
-
-            Shape *anotherShapePtr = nullptr;
-            Position posOne;
-            posOne.xCoord = 5;
-            posOne.yCoord = 5;
-            Position posTwo;
-            posTwo.xCoord = 7;
-            posTwo.yCoord = 5;
-            Position posThree;
-            posThree.xCoord = 7;
-            posThree.yCoord = 9;
-            Position posFour;
-            posFour.xCoord = 5;
-            posFour.yCoord = 9;
-            Position *anotherPositionPointer = new Position[4];
-            anotherPositionPointer[0] = posOne;
-            anotherPositionPointer[1] = posTwo;
-            anotherPositionPointer[2] = posThree;
-            anotherPositionPointer[3] = posFour;
-            anotherShapePtr = new Polygon(anotherPositionPointer, 4, "Polygon");
-            shapePtr = new Polygon(positionPtr, 4, "Polygon");
-            std::cout << "Distance: " << shapePtr->distance(anotherShapePtr) << std::endl;
-
-            for(int i = 0; i < count; i++)
-            {
-                std::cout << "X: " << positionPtr[i].xCoord << ", Y: " << positionPtr[i].yCoord << std::endl;
-            }
+            double area = shapePtr->area();         //Print area with 3 decimal digits
+            area = round(area * 1000) / 1000;
+            std::cout << area << std::endl;
         }        
     }
 
     delete []positionPtr;
     positionPtr = nullptr;
+
+    delete []shapePtr;
+    shapePtr = nullptr;
     }
 }

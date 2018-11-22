@@ -37,7 +37,7 @@ double Polygon::area()
 
     if(area == 0)   //-1 if doesn't have an area
     {
-        return -1;
+        area = -1;
     }
     return area;
 }

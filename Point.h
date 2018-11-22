@@ -10,12 +10,12 @@ class Point : public Shape
 
         ~Point();                                  //Point destructor
 
-        virtual double area()           
+        double area()           
         {
             return -1;
         }
 
-        virtual double circumreference()       //returns circumreference of the object
+        double circumreference()       //returns circumreference of the object
         {
             return -1;
         }
