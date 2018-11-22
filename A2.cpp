@@ -36,13 +36,13 @@ int main(int argc, const char * argv[])
             {
                 if(numbers % 2 == 0)
                 {
-                    inputFile >> positionPtr[count].xCoord;
-                    numbers++;
+                    if(inputFile >> positionPtr[count].xCoord)
+                        numbers++;
                 }
                 else
                 {
-                    inputFile >> positionPtr[count].yCoord;
-                    numbers++;
+                    if(inputFile >> positionPtr[count].yCoord)
+                        numbers++;
                 }
             }
 
@@ -78,70 +78,72 @@ int main(int argc, const char * argv[])
         {
             std::cout << "There has to be an EVEN amount of values in the file\n";
         } */
-        if(count == 1)
+        if(numbers % 2 == 0)
         {
-            type = "Point";
-            shapePtr = new Point(positionPtr, count, type);    //Create point object
-        }
-        else if(count == 2)
-        {
-            type = "Line";
-            shapePtr = new Line(positionPtr, count, type);       //Create line object
-        }
-        else if(count == 3)
-        {
-            type = "Triangle";
-            shapePtr = new Triangle(positionPtr, count, type);   //Create triangle object   //???Om punkter på rad??
-        }
-        else if(count >= 4)
-        {
-            type = "Polygon";
-            shapePtr = new Polygon(positionPtr, count, type);    //Create polygon object
-        }
+            if(count == 1)
+            {
+                type = "Point";
+                shapePtr = new Point(positionPtr, count, type);    //Create point object
+            }
+            else if(count == 2)
+            {
+                type = "Line";
+                shapePtr = new Line(positionPtr, count, type);       //Create line object
+            }
+            else if(count == 3)
+            {
+                type = "Triangle";
+                shapePtr = new Triangle(positionPtr, count, type);   //Create triangle object   //???Om punkter på rad??
+            }
+            else if(count >= 4)
+            {
+                type = "Polygon";
+                shapePtr = new Polygon(positionPtr, count, type);    //Create polygon object
+            }
 
-        std::cout << "Shape: " << shapePtr->getType() << std::endl;
-        std::cout << "Area: " << shapePtr->area() << std::endl;
-        std::cout << "Midposition, x: " << shapePtr->position().xCoord << " , y: " << shapePtr->position().yCoord << std::endl;
-        std::cout << "Circumference: " << shapePtr->circumreference() << std::endl;
-        std::string convex = "";
-        if(shapePtr->isConvex())
-        {
-            convex = "Yes";
-        }
-        else
-        {
-            convex = "No";
-        }
-        std::cout << "Is convex: " << convex << std::endl;
-    }
-    
-    for(int i = 0; i < count; i++)
-    {
-            std::cout << "X: " << positionPtr[i].xCoord << ", Y: " << positionPtr[i].yCoord << std::endl;
-    }
+            std::cout << "Shape: " << shapePtr->getType() << std::endl;
+            std::cout << "Area: " << shapePtr->area() << std::endl;
+            std::cout << "Midposition, x: " << shapePtr->position().xCoord << " , y: " << shapePtr->position().yCoord << std::endl;
+            std::cout << "Circumference: " << shapePtr->circumreference() << std::endl;
+            std::string convex = "";
+            if(shapePtr->isConvex())
+            {
+                convex = "Yes";
+            }
+            else
+            {
+                convex = "No";
+            }
+            std::cout << "Is convex: " << convex << std::endl;
 
-    Shape *anotherShapePtr = nullptr;
-    Position posOne;
-    posOne.xCoord = 5;
-    posOne.yCoord = 5;
-    Position posTwo;
-    posTwo.xCoord = 7;
-    posTwo.yCoord = 5;
-    Position posThree;
-    posThree.xCoord = 7;
-    posThree.yCoord = 9;
-    Position posFour;
-    posFour.xCoord = 5;
-    posFour.yCoord = 9;
-    Position *anotherPositionPointer = new Position[4];
-    anotherPositionPointer[0] = posOne;
-    anotherPositionPointer[1] = posTwo;
-    anotherPositionPointer[2] = posThree;
-    anotherPositionPointer[3] = posFour;
-    anotherShapePtr = new Polygon(anotherPositionPointer, 4, "Polygon");
-    shapePtr = new Polygon(positionPtr, 4, "Polygon");
-    
-    std::cout << "Distance: " << shapePtr->distance(anotherShapePtr) << std::endl;
+            Shape *anotherShapePtr = nullptr;
+            Position posOne;
+            posOne.xCoord = 5;
+            posOne.yCoord = 5;
+            Position posTwo;
+            posTwo.xCoord = 7;
+            posTwo.yCoord = 5;
+            Position posThree;
+            posThree.xCoord = 7;
+            posThree.yCoord = 9;
+            Position posFour;
+            posFour.xCoord = 5;
+            posFour.yCoord = 9;
+            Position *anotherPositionPointer = new Position[4];
+            anotherPositionPointer[0] = posOne;
+            anotherPositionPointer[1] = posTwo;
+            anotherPositionPointer[2] = posThree;
+            anotherPositionPointer[3] = posFour;
+            anotherShapePtr = new Polygon(anotherPositionPointer, 4, "Polygon");
+            shapePtr = new Polygon(positionPtr, 4, "Polygon");
+            std::cout << "Distance: " << shapePtr->distance(anotherShapePtr) << std::endl;
+
+            for(int i = 0; i < count; i++)
+            {
+                std::cout << "X: " << positionPtr[i].xCoord << ", Y: " << positionPtr[i].yCoord << std::endl;
+            }
+        }        
+    }
 
     //Test how signbit works - remove when done
 /*     bool isNegative = std::signbit(-1);
