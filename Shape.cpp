@@ -1,6 +1,6 @@
 #include "Shape.h"
 
-Position Shape::position()                   //returns center coordinates of the object
+Position Shape::position()
 {
     Position midPosition;
     midPosition.xCoord = 0.0;
@@ -17,7 +17,7 @@ Position Shape::position()                   //returns center coordinates of the
 }
 
 
-bool Shape::isConvex()          //returns true if shape is convex
+bool Shape::isConvex()
 {
     bool isConvex = true;
     bool sign = true;

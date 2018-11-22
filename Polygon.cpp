@@ -1,6 +1,6 @@
 #include "Polygon.h"
 
-Polygon::Polygon(Position *pPos, int numPositions, std::string type)      //Polygon constructor
+Polygon::Polygon(Position *pPos, int numPositions, std::string type)
 {
     this->type = type;
     nrOfPositions = numPositions;
@@ -11,12 +11,12 @@ Polygon::Polygon(Position *pPos, int numPositions, std::string type)      //Poly
     }
 }
 
-Polygon::~Polygon()             //Polygon destructor
+Polygon::~Polygon()
 {
     delete[] posPtr;
 }
 
-double Polygon::area()          //Area
+double Polygon::area()
 {
     double area = 0.0; 
     int j = nrOfPositions - 1; 

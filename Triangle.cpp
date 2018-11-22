@@ -1,6 +1,6 @@
 #include "Triangle.h"
 
-Triangle::Triangle(Position *pPos, int numPositions, std::string type)     //Triangle constructor
+Triangle::Triangle(Position *pPos, int numPositions, std::string type)
 {
     this->type = type;
     nrOfPositions = numPositions;
@@ -11,7 +11,7 @@ Triangle::Triangle(Position *pPos, int numPositions, std::string type)     //Tri
     }
 }
 
-Triangle::~Triangle()           //Triangle destructor
+Triangle::~Triangle()
 {
     delete[] posPtr;
 }

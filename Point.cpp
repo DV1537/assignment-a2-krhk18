@@ -1,6 +1,6 @@
 #include "Point.h"
 
-Point::Point(Position *pPos, int numPositions, std::string type)      //Point constructor
+Point::Point(Position *pPos, int numPositions, std::string type)
 {
     this->type = type;
     nrOfPositions = numPositions;
@@ -11,7 +11,7 @@ Point::Point(Position *pPos, int numPositions, std::string type)      //Point co
     }
 }
 
-Point::~Point()         //Point destructor
+Point::~Point()
 {
     delete[] posPtr;
 }

@@ -8,7 +8,7 @@ class Polygon : public Shape
     public:
         Polygon(Position *pPos, int numPositions, std::string type);      //Polygon constructor
 
-        ~Polygon();
+        ~Polygon();     //Polygon destructor
 
         double area();
 

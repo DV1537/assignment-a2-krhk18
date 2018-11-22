@@ -8,7 +8,7 @@ class Triangle : public Shape
     public:
         Triangle(Position *pPos, int numPositions, std::string type);     //Triangle constructor
      
-        ~Triangle();                                  //Triangle destructor
+        ~Triangle();                                                      //Triangle destructor
 
         double area();
 
