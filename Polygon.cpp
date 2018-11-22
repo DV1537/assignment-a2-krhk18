@@ -14,6 +14,7 @@ Polygon::Polygon(Position *pPos, int numPositions, std::string type)
 Polygon::~Polygon()
 {
     delete[] posPtr;
+    posPtr = nullptr;
 }
 
 double Polygon::area()

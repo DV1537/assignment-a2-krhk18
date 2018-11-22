@@ -14,6 +14,7 @@ Line::Line(Position *pPos, int numPositions, std::string type)      //Line const
 Line::~Line()       //Line destructor
 {
     delete[] posPtr;
+    posPtr = nullptr;
 }
 
 double Line::circumreference()

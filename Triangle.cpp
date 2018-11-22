@@ -14,6 +14,7 @@ Triangle::Triangle(Position *pPos, int numPositions, std::string type)
 Triangle::~Triangle()
 {
     delete[] posPtr;
+    posPtr = nullptr;
 }
 
 double Triangle::area()

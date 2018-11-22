@@ -14,4 +14,5 @@ Point::Point(Position *pPos, int numPositions, std::string type)
 Point::~Point()
 {
     delete[] posPtr;
+    posPtr = nullptr;
 }

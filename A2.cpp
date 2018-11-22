@@ -121,7 +121,7 @@ int main(int argc, const char * argv[])
     anotherPositionPointer[2] = posThree;
     anotherPositionPointer[3] = posFour;
     anotherShapePtr = new Polygon(anotherPositionPointer, 4, "Polygon");
-    shapePtr = new Triangle(positionPtr, 3, "Triangle");
+    shapePtr = new Polygon(positionPtr, 4, "Polygon");
     
     std::cout << "Distance: " << shapePtr->distance(anotherShapePtr) << std::endl;
 
@@ -133,6 +133,7 @@ int main(int argc, const char * argv[])
     }
     else
         std::cout << "Positive" << std::endl; */
-}
 
-//Remember delete positionPtr!!!
+    delete []positionPtr;
+    positionPtr = nullptr;
+}
