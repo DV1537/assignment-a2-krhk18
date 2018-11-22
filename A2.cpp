@@ -18,6 +18,7 @@ int main(int argc, const char * argv[])
     int size = 1;
     Position *positionPtr = new Position[size];
     Shape *shapePtr = nullptr;
+    int numbers = 0;
     int count = 0;
     std::string type = "";
     std::ifstream inputFile;
@@ -31,25 +32,42 @@ int main(int argc, const char * argv[])
     {
         do
         {
-            inputFile >> positionPtr[count].xCoord;
-            inputFile >> positionPtr[count].yCoord;
-            count++;
-
-            if(count >= size)                       //If full: expand
+            for(int i = 0; i < 2; i++)
             {
-                size += 1;                          //increase size
-                Position *tempPtr = new Position[size];      //Create new (bigger)
-                                
-                for(int i = 0; i < size - 1; i++)      //move
+                if(numbers % 2 == 0)
                 {
-                    tempPtr[i] = positionPtr[i];
+                    inputFile >> positionPtr[count].xCoord;
+                    numbers++;
                 }
-
-                delete []positionPtr;                //delete old content
-                positionPtr = tempPtr;               //make pointer point to new array
-                tempPtr = nullptr;                  //make xTempPtr point to null
+                else
+                {
+                    inputFile >> positionPtr[count].yCoord;
+                    numbers++;
+                }
             }
-            
+
+            if(numbers % 2 == 1)    //If odd numbers read in (means file contains odd number of values)
+            {
+                std::cout << "The file contains an odd number of values" << std::endl;
+            }
+            else
+            {
+                count = numbers / 2;
+                if(count >= size)                       //If full: expand
+                {
+                    size += 1;                          //increase size
+                    Position *tempPtr = new Position[size];      //Create new (bigger)
+                                    
+                    for(int i = 0; i < size - 1; i++)      //move
+                    {
+                        tempPtr[i] = positionPtr[i];
+                    }
+
+                    delete []positionPtr;                //delete old content
+                    positionPtr = tempPtr;               //make pointer point to new array
+                    tempPtr = nullptr;                  //make xTempPtr point to null
+                }
+            }            
         }while(!inputFile.eof());
 /* 
         if(count < 2)
