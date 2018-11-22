@@ -99,13 +99,13 @@ int main(int argc, const char * argv[])
     
 
     //Test how signbit works - remove when done
-    bool isNegative = std::signbit(-1);
+/*     bool isNegative = std::signbit(-1);
     if(isNegative)
     {
         std::cout << "Negative" << std::endl;
     }
     else
-        std::cout << "Positive" << std::endl;
+        std::cout << "Positive" << std::endl; */
 }
 
 //Remember delete positionPtr!!!

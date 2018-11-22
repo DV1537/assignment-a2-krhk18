@@ -8,14 +8,8 @@ class Line : public Shape
         std::string type = "line";
     public:
         Line(Position *pPos, int numPositions);      //Line constructor
- /*        {
-            nrOfPositions = numPositions;
-            posPtr = new Position[numPositions];
-            for(int i = 0; i < numPositions; i++)
-            {
-                posPtr[i] = pPos[i];
-            }
-        } */
+
+        ~Line();        //Line destructor
 
         std::string getType() const     //Returns type
         {

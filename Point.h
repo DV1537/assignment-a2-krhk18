@@ -7,14 +7,8 @@ class Point : public Shape
     private:
     public:
         Point(Position *pPos, int numPositions);     //Point constructor
-/*         {
-            nrOfPositions = numPositions;
-            posPtr = new Position[numPositions];
-            for(int i = 0; i < numPositions; i++)
-            {
-                posPtr[i] = pPos[i];
-            }
-        } */
+
+        ~Point();                                  //Point destructor
 
         virtual std::string getType() const
         {

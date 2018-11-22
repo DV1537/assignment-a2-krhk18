@@ -9,3 +9,8 @@ Polygon::Polygon(Position *pPos, int numPositions)      //Polygon constructor
         posPtr[i] = pPos[i];
     }
 }
+
+Polygon::~Polygon()             //Polygon destructor
+{
+    delete[] posPtr;
+}

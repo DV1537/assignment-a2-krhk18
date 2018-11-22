@@ -1,6 +1,6 @@
 #include "Point.h"
 
-Point::Point(Position *pPos, int numPositions)
+Point::Point(Position *pPos, int numPositions)      //Point constructor
 {
     nrOfPositions = numPositions;
     posPtr = new Position[numPositions];
@@ -8,4 +8,9 @@ Point::Point(Position *pPos, int numPositions)
     {
         posPtr[i] = pPos[i];
     }
+}
+
+Point::~Point()         //Point destructor
+{
+    delete[] posPtr;
 }

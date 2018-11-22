@@ -1,11 +1,3 @@
-/* #include "Line.h"
-
-double Line::area()
-{
-    double area = -1;
-    return area;
-} */
-
 #include "Line.h"
 
 Line::Line(Position *pPos, int numPositions)      //Line constructor
@@ -16,6 +8,11 @@ Line::Line(Position *pPos, int numPositions)      //Line constructor
     {
         posPtr[i] = pPos[i];
     }
+}
+
+Line::~Line()       //Line destructor
+{
+    delete[] posPtr;
 }
 
 double Line::circumreference()
