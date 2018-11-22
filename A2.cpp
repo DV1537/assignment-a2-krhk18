@@ -46,9 +46,12 @@ int main(int argc, const char * argv[])
                 }
             }
 
-            if(numbers % 2 == 1)    //If odd numbers read in (means file contains odd number of values)
+            if(numbers % 2 == 1 || numbers == 0)    //If odd number of values are read in (means file contains odd number of values)
             {
-                std::cout << "The file contains an odd number of values" << std::endl;
+                if(numbers % 2 == 1)
+                    std::cout << "The file contains an odd number of values" << std::endl;
+                else if (numbers == 0)
+                    std::cout << "The file doesn't contain any valid values" << std::endl;
             }
             else
             {
@@ -78,7 +81,7 @@ int main(int argc, const char * argv[])
         {
             std::cout << "There has to be an EVEN amount of values in the file\n";
         } */
-        if(numbers % 2 == 0)
+        if(numbers % 2 == 0 && numbers != 0)
         {
             if(count == 1)
             {
