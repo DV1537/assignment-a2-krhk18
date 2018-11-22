@@ -16,7 +16,8 @@
 int main(int argc, const char * argv[])
 {
     int size = 1;
-    Position *positionPtr = new Position[size];
+    double *numbersPtr = new double[size];
+    Position *positionPtr = nullptr;
     Shape *shapePtr = nullptr;
     int numbers = 0;
     int count = 0;
@@ -30,57 +31,41 @@ int main(int argc, const char * argv[])
     }
     else
     {
-        do
-        {
-            for(int i = 0; i < 2; i++)
-            {
-                if(numbers % 2 == 0)
-                {
-                    if(inputFile >> positionPtr[count].xCoord)
-                        numbers++;
-                }
-                else
-                {
-                    if(inputFile >> positionPtr[count].yCoord)
-                        numbers++;
-                }
-            }
+        while(inputFile >> numbersPtr[numbers])           //Read in and store
+        {           
 
-            if(numbers % 2 == 1 || numbers == 0)    //If odd number of values are read in (means file contains odd number of values)
+            numbers++;
+            if(numbers >= size)       //If full: expand
             {
-                if(numbers % 2 == 1)
-                    std::cout << "The file contains an odd number of values" << std::endl;
-                else if (numbers == 0)
-                    std::cout << "The file doesn't contain any valid values" << std::endl;
-            }
-            else
-            {
-                count = numbers / 2;
-                if(count >= size)                       //If full: expand
+                size += 1;
+                double *tempPtr = new double[size];  //Create new, bigger
+                for(int i = 0; i < size - 1; i++)      //move
                 {
-                    size += 1;                          //increase size
-                    Position *tempPtr = new Position[size];      //Create new (bigger)
-                                    
-                    for(int i = 0; i < size - 1; i++)      //move
-                    {
-                        tempPtr[i] = positionPtr[i];
-                    }
-
-                    delete []positionPtr;                //delete old content
-                    positionPtr = tempPtr;               //make pointer point to new array
-                    tempPtr = nullptr;                  //make xTempPtr point to null
+                    tempPtr[i] = numbersPtr[i];
                 }
-            }            
-        }while(!inputFile.eof());
-/* 
-        if(count < 2)
-        {
-            std::cout << "There has to be AT LEAST TWO values in the file\n";
+                delete []numbersPtr;                //delete old content
+                numbersPtr = tempPtr;               //make pointer point to new array
+                tempPtr = nullptr;
+            }
         }
-        else if(count % 2 == 1)
+        if(numbers == 0 || !inputFile.eof())
         {
-            std::cout << "There has to be an EVEN amount of values in the file\n";
-        } */
+            std::cout << "File is empty or contains non-numerical values\n";
+        }
+        else if(numbers % 2 == 1)
+        {
+            std::cout << "File contains an odd number of values\n";
+        }
+        else
+        {
+            count = numbers / 2;
+            positionPtr = new Position[count];
+            for(int i = 0; i < count; i++)
+            {
+                positionPtr[i].xCoord = numbersPtr[2 * i];
+                positionPtr[i].yCoord = numbersPtr[2 * i + 1];
+            }
+
         if(numbers % 2 == 0 && numbers != 0)
         {
             if(count == 1)
@@ -148,15 +133,7 @@ int main(int argc, const char * argv[])
         }        
     }
 
-    //Test how signbit works - remove when done
-/*     bool isNegative = std::signbit(-1);
-    if(isNegative)
-    {
-        std::cout << "Negative" << std::endl;
-    }
-    else
-        std::cout << "Positive" << std::endl; */
-
     delete []positionPtr;
     positionPtr = nullptr;
+    }
 }
