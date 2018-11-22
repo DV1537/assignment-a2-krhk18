@@ -1,6 +1,6 @@
-/* #indlude "Shape.h"
+#include "Shape.h"
 
-Shape::Shape()
+/* Shape::Shape()
 {
     this->nrOfPositions = 0;
     this->posPtr = new Position[nrOfPositions];
@@ -10,3 +10,56 @@ Shape::~Shape()
 {
     delete[] posPtr;
 } */
+
+Position Shape::position()                   //returns center coordinates of the object
+{
+    Position midPosition;
+    midPosition.xCoord = 0.0;
+    midPosition.yCoord = 0.0;
+    for(int i = 0; i < nrOfPositions ; i++)
+    {
+        midPosition.xCoord += posPtr[i].xCoord;
+        midPosition.yCoord += posPtr[i].yCoord;
+    }
+    midPosition.xCoord /= nrOfPositions;
+    midPosition.yCoord /= nrOfPositions;
+
+    return midPosition;
+}
+
+
+bool Shape::isConvex()          //returns true if shape is convex
+{
+    bool isConvex = true;
+    bool sign = true;
+    bool first = true;
+
+    for(int i = 0; i < nrOfPositions; i++)
+    {
+        double v1x = posPtr[i].xCoord - posPtr[(i + 1) % nrOfPositions].xCoord;
+        double v1y = posPtr[i].yCoord - posPtr[(i + 1) % nrOfPositions].yCoord;
+        double v2x = posPtr[(i + 2) % nrOfPositions].xCoord - posPtr[(i + 1) % nrOfPositions].xCoord;
+        double v2y = posPtr[(i + 2) % nrOfPositions].yCoord - posPtr[(i + 1) % nrOfPositions].yCoord;
+        double dotProduct = ((v1x * v2x) + v1y * v2y);
+
+        if(dotProduct != 0)
+        {
+            if(first)
+            {
+                if(dotProduct > 0)
+                {
+                    sign = false;
+                    first = false;
+                }
+            }
+            else
+            {
+                if(std::signbit(dotProduct) != sign)
+                {
+                    isConvex = false;
+                }
+            }
+        }
+    }
+    return isConvex;
+}

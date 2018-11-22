@@ -15,3 +15,28 @@ Triangle::~Triangle()           //Triangle destructor
 {
     delete[] posPtr;
 }
+
+double Triangle::area()
+{
+    double area = 0.0; 
+    int j = nrOfPositions - 1; 
+    for (int i = 0; i < nrOfPositions; i++)
+    { 
+        area += (posPtr[j].xCoord + posPtr[i].xCoord) * (posPtr[j].yCoord - posPtr[i].yCoord); 
+        j = i;
+    } 
+    area = abs(area / 2.0);
+    return area;
+}
+
+double Triangle::circumreference()
+{
+    double circumference = 0.0;
+    int j = nrOfPositions - 1;
+    for(int i = 0; i < nrOfPositions; i++)
+    {
+        circumference += sqrt(pow((posPtr[i].xCoord - posPtr[j].xCoord), 2) + pow((posPtr[i].yCoord - posPtr[j].yCoord), 2));
+        j = i;
+    }
+    return circumference;
+}

@@ -9,6 +9,10 @@ class Polygon : public Shape
         Polygon(Position *pPos, int numPositions, std::string type);      //Polygon constructor
 
         ~Polygon();
+
+        double area();
+
+        double circumreference();
 };
 
 #endif
