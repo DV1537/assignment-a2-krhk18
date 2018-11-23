@@ -28,7 +28,7 @@ double Polygon::area()
             area += (posPtr[j].xCoord + posPtr[i].xCoord) * (posPtr[j].yCoord - posPtr[i].yCoord); 
             j = i;
         } 
-        area = abs(area / 2.0);
+        area = fabs(area / 2.0);
     }
     else
     {
