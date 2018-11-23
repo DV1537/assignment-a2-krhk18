@@ -66,11 +66,9 @@ int main(int argc, const char * argv[])
                 positionPtr[i].yCoord = numbersPtr[2 * i + 1];
             }
 
-        delete []numbersPtr;
-        numbersPtr = nullptr;
+            delete []numbersPtr;
+            numbersPtr = nullptr;
 
-        if(numbers % 2 == 0 && numbers != 0)
-        {
             if(count == 1)
             {
                 type = "Point";
@@ -94,14 +92,14 @@ int main(int argc, const char * argv[])
 
             double area = shapePtr->area();         //Print area with 3 decimal digits
             area = round(area * 1000) / 1000;
-            std::cout << area << std::endl;
-        }        
+            std::cout << area << std::endl;        
+        }
     }
-
     delete []positionPtr;
     positionPtr = nullptr;
 
-    delete []shapePtr;
+    delete shapePtr;
     shapePtr = nullptr;
-    }
+
+    std::getchar();
 }
